@@ -1,0 +1,6 @@
+config.json
+bin
+lib
+.Python
+__pycache__
+*.pyc
