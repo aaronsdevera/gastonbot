@@ -1,10 +1,10 @@
 '''
-
+######################################################################################
 ##################
 (1) STEP ONE!  
 ##################
 add the one-word command to the command palette that starts on line 
-
+######################################################################################
 '''
 
 COMMAND_PALLETTE = [
@@ -16,6 +16,7 @@ COMMAND_PALLETTE = [
 
 
 '''
+######################################################################################
 
 ##################
 (2) STEP TWO!  
@@ -51,7 +52,7 @@ def bark(parsedEvent):
 
 
 '''
-
+######################################################################################
 ##################
 (3) STEP THREE!  
 ##################
@@ -84,6 +85,7 @@ if COMMAND == 'myCommand':
     except:
         print('[!] error executing command "{}".'.format(COMMAND))
     return payload
+######################################################################################
 '''
 
 
@@ -98,27 +100,13 @@ def linkbot(parsedEvent):
         print('[+] command {} confirmed to be valid.'.format(COMMAND))
         print('[+] proceeding to run associated function for {}.'.format(COMMAND))
 
-        '''
-######################################################################################
-        TRIGGER LOGIC STARTS HERE
 
-        this is (3) STEP THREE!  
-        use this template:
-
-        if COMMAND == 'myCommand':
-            # enter code below
-            try:
-                payload = myCommandFunction(parsedEvent)
-                print('[+] command "{}" successfully executed.'.format(COMMAND))
-            except:
-                print('[!] error executing command "{}".'.format(COMMAND))
-            return payload
-
-######################################################################################
-        '''
-
-
-
+        ######################################################################################
+        ##################
+        # (3) STEP THREE!  
+        ##################
+        # put trigger logic below!
+        ######################################################################################
 
         if COMMAND == 'bark':
             # enter code below
@@ -138,9 +126,9 @@ def linkbot(parsedEvent):
 
 
 
-
-
-
+        ######################################################################################
+        # end step three
+        ######################################################################################
 
 
 
