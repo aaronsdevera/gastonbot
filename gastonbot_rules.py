@@ -10,7 +10,7 @@ add the one-word command to the command palette that starts on line
 COMMAND_PALLETTE = [
     {
         'command' : 'bark',
-        'description' : 'gaston will BARK at you or whoever you @mention'
+        'description' : 'gaston will BARK at you or whoever you `@mention`'
     },
     {
         'command' : 'help',
@@ -18,7 +18,7 @@ COMMAND_PALLETTE = [
     },
     {
         'command' : 'kiss',
-        'description' : 'gaston will :tongue: you or whoever you @mention'
+        'description' : 'gaston will :tongue: you or whoever you `@mention`'
     }
 ]
 
