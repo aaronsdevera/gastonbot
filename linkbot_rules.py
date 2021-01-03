@@ -43,6 +43,7 @@ def bark(parsedEvent):
     if parsedEvent['message_args'] == '' or parsedEvent['message_args'] == ' ':
         payload = 'BARK!'
     else:
+        # if args, check to see if there is a mention in there
         split_args = parsedEvent['message_args'].split(' ')
         if '@' in split_args[0]:
             payload = '{} BARK!'.format(split_args[0])
