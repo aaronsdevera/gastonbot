@@ -13,6 +13,10 @@ COMMAND_PALLETTE = [
         'description' : 'gaston will BARK at you or whoever you @mention'
     },
     {
+        'command' : 'help',
+        'description' : 'show list of commands'
+    },
+    {
         'command' : 'kiss',
         'description' : 'gaston will :tongue: you or whoever you @mention'
     }
@@ -54,12 +58,24 @@ def bark(parsedEvent):
     else:
         # if args, check to see if there is a mention in there
         split_args = parsedEvent['message_args'].split(' ')
-        split_args = list(set(split_args))
-        split_args.remove('')
-        split_args.remove(' ')
-        if '<' in split_args[0]:
-            payload = '{} BARK!'.format(split_args[0])
+        mention = parsedEvent['message_args']
+        payload = 'BARK! {}'.format(mention)
     return payload
+
+
+
+def help(parsedEvent):
+    payload = 'WOOF! I\'m gastonbot. I\'m not that useful, but I still love you!\n'
+    payload += 'Here is what you can ask me:\n'
+    commands_payload = ''
+    for each in COMMAND_PALLETTE:
+        commands_payload += '* `{command}` - {description}'.format(command=each['command'],description=each['description'])
+    payload += commands_payload
+    payload += 'invoke a command by mentioning me directly `@gastonbot`!'
+    return payload
+
+
+
 
 def kiss(parsedEvent):
     payload = None
@@ -147,6 +163,16 @@ def gastonbot(parsedEvent):
                 print('[gastonbot] command "{}" successfully executed.'.format(COMMAND))
             except:
                 print('[gastonbot] error executing command "{}".'.format(COMMAND))
+            return payload
+
+
+        if COMMAND == 'help':
+            # enter code below
+            try:
+                payload = help(parsedEvent)
+               
+            except:
+                payload = 'I cannot help you, I\m just a doooooog'
             return payload
 
         if COMMAND == 'kiss':
