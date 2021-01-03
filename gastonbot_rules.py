@@ -64,7 +64,7 @@ def bark(parsedEvent):
 
 
 
-def help(parsedEvent):
+def helpme(parsedEvent):
     payload = 'WOOF! I\'m gastonbot. I\'m not that useful, but I still love you!\n'
     payload += 'Here is what you can ask me:\n'
     commands_payload = ''
@@ -168,7 +168,7 @@ def gastonbot(parsedEvent):
         if COMMAND == 'help':
             # enter code below
             try:
-                payload = help(parsedEvent)
+                payload = helpme(parsedEvent)
                
             except:
                 payload = 'I cannot help you, I\m just a doooooog'
