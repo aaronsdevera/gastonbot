@@ -89,7 +89,7 @@ if COMMAND == 'myCommand':
     # enter code below
     try:
         payload = myCommandFunction(parsedEvent)
-        print('[+] command "{}" successfully executed.'.format(COMMAND))
+        print('[linkbot] command "{}" successfully executed.'.format(COMMAND))
     except:
         print('[!] error executing command "{}".'.format(COMMAND))
     return payload
@@ -105,8 +105,8 @@ def linkbot(parsedEvent):
     COMMAND = parsedEvent['message_command']
 
     if COMMAND in COMMAND_PALLETTE:
-        print('[+] command {} confirmed to be valid.'.format(COMMAND))
-        print('[+] proceeding to run associated function for {}.'.format(COMMAND))
+        print('[linkbot] command {} confirmed to be valid.'.format(COMMAND))
+        print('[linkbot] proceeding to run associated function for {}.'.format(COMMAND))
 
 
         ######################################################################################
@@ -120,7 +120,7 @@ def linkbot(parsedEvent):
             # enter code below
             try:
                 payload = bark(parsedEvent)
-                print('[+] command "{}" successfully executed.'.format(COMMAND))
+                print('[linkbot] command "{}" successfully executed.'.format(COMMAND))
             except:
                 print('[!] error executing command "{}".'.format(COMMAND))
             return payload
@@ -143,4 +143,4 @@ def linkbot(parsedEvent):
 
 
     else:
-        print('[+] command {} is not a valid command'.format(COMMAND))
+        print('[linkbot] command {} is not a valid command'.format(COMMAND))
