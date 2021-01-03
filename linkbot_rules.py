@@ -8,7 +8,7 @@ add the one-word command to the command palette that starts on line
 '''
 
 COMMAND_PALLETTE = [
-    'bark'
+    'bark','kiss'
 ]
 
 
@@ -52,7 +52,19 @@ def bark(parsedEvent):
             payload = '{} BARK!'.format(split_args[0])
     return payload
 
+def kiss(parsedEvent):
+    payload = None
+    # enter code below
 
+    # are there args?
+    if parsedEvent['message_args'] == '' or parsedEvent['message_args'] == ' ':
+        payload = ':tongue: <@{}>'.format(parsedEvent['author_id'])
+    else:
+        # if args, check to see if there is a mention in there
+        split_args = parsedEvent['message_args'].split(' ')
+        mention = parsedEvent['message_args']
+        payload = ':tongue: {}'.format(mention)
+    return payload
 
 
 
@@ -123,6 +135,15 @@ def linkbot(parsedEvent):
             # enter code below
             try:
                 payload = bark(parsedEvent)
+                print('[linkbot] command "{}" successfully executed.'.format(COMMAND))
+            except:
+                print('[linkbot] error executing command "{}".'.format(COMMAND))
+            return payload
+
+        if COMMAND == 'kiss':
+            # enter code below
+            try:
+                payload = kiss(parsedEvent)
                 print('[linkbot] command "{}" successfully executed.'.format(COMMAND))
             except:
                 print('[linkbot] error executing command "{}".'.format(COMMAND))
