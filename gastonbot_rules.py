@@ -65,9 +65,9 @@ def helpme(parsedEvent):
     payload += 'Here is what you can ask me:\n'
     commands_payload = ''
     for each in COMMAND_PALLETTE:
-        commands_payload += '* `{command}` - {description}'.format(command=each['command'],description=each['description'])
+        commands_payload += '- `{command}` - {description}\n'.format(command=each['command'],description=each['description'])
     payload += commands_payload
-    payload += 'invoke a command by mentioning me directly `@gastonbot`!'
+    payload += '\ninvoke a command by mentioning me directly `@gastonbot`!'
     return payload
 
 
