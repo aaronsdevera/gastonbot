@@ -13,6 +13,10 @@ COMMAND_PALLETTE = [
         'description' : 'gaston will BARK at you or whoever you `@mention`'
     },
     {
+        'command' : 'friends',
+        'description' : 'shows a random dog friend!'
+    },
+    {
         'command' : 'help',
         'description' : 'show list of commands'
     },
@@ -56,6 +60,16 @@ def bark(parsedEvent):
         split_args = parsedEvent['message_args'].split(' ')
         mention = parsedEvent['message_args']
         payload = 'BARK! {}'.format(mention)
+    return payload
+
+
+
+def friends(parsedEvent):
+    payload = None
+    import requests
+    r = requests.get('https://dog.ceo/api/breeds/image/random')
+    dog_pic_url = r.json()['message']
+    payload = dog_pic_url
     return payload
 
 
@@ -164,6 +178,15 @@ def gastonbot(parsedEvent):
                 print('[gastonbot] error executing command "{}".'.format(COMMAND))
             return payload
 
+        if COMMAND == 'friends':
+            # enter code below
+            try:
+                payload = friends(parsedEvent)
+                print('[gastonbot] command "{}" successfully executed.'.format(COMMAND))
+            except:
+                print('[gastonbot] error executing command "{}".'.format(COMMAND))
+            return payload
+
 
         if COMMAND == 'help':
             # enter code below
@@ -173,6 +196,7 @@ def gastonbot(parsedEvent):
             except:
                 payload = 'I cannot help you, I\m just a doooooog'
             return payload
+
 
         if COMMAND == 'kiss':
             # enter code below
