@@ -38,7 +38,14 @@ def myCommandFunction(parsedEvent):
 def bark(parsedEvent):
     payload = None
     # enter code below
-    payload = 'BARK!'
+
+    # are there args?
+    if parsedEvent['message_args'] == '' or parsedEvent['message_args'] == ' ':
+        payload = 'BARK!'
+    else:
+        split_args = parsedEvent['message_args'].split(' ')
+        if '@' in split_args[0]:
+            payload = '{} BARK!'.format(split_args[0])
     return payload
 
 
