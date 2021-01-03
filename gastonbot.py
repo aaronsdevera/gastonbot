@@ -41,7 +41,7 @@ def parseCommandMessage(event):
 def parseCommand(event):
 	message_with_command = parseCommandMessage(event)
 	split_message_with_command = message_with_command.split(' ')
-	return split_message_with_command[0]
+	return split_message_with_command[0].lower()
 
 def parseArgs(event):
 	message_with_command = parseCommandMessage(event)

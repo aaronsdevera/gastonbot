@@ -8,10 +8,19 @@ add the one-word command to the command palette that starts on line
 '''
 
 COMMAND_PALLETTE = [
-    'bark','kiss'
+    {
+        'command' : 'bark',
+        'description' : 'gaston will BARK at you or whoever you @mention'
+    },
+    {
+        'command' : 'kiss',
+        'description' : 'gaston will :tongue: you or whoever you @mention'
+    }
 ]
 
-
+COMMANDS=[]
+for command in COMMAND_PALLETTE:
+    COMMANDS.append(command)
 
 
 
@@ -119,7 +128,7 @@ def gastonbot(parsedEvent):
 
     COMMAND = parsedEvent['message_command']
 
-    if COMMAND in COMMAND_PALLETTE:
+    if COMMAND in COMMANDS:
         print('[gastonbot] command {} confirmed to be valid.'.format(COMMAND))
         print('[gastonbot] proceeding to run associated function for {}.'.format(COMMAND))
 
