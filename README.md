@@ -1,9 +1,9 @@
-# linkbot
-linkbot is a friendly dog that takes after his IRL counterpart https://www.instagram.com/p/B1zGf06phzb/
+# gastonbot
+gastonbot is a bot
 
 # adding new commands
 
-all you need to edit is the `linkbot_rules.py` file.
+all you need to edit is the `gastonbot_rules.py` file.
 
 Steps:
 1. add the one-word command to the command palette that starts on line 10.
