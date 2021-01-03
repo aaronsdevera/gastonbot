@@ -104,7 +104,7 @@ if COMMAND == 'myCommand':
     # enter code below
     try:
         payload = myCommandFunction(parsedEvent)
-        print('[linkbot] command "{}" successfully executed.'.format(COMMAND))
+        print('[gastonbot] command "{}" successfully executed.'.format(COMMAND))
     except:
         print('[!] error executing command "{}".'.format(COMMAND))
     return payload
@@ -115,13 +115,13 @@ if COMMAND == 'myCommand':
 
 
 
-def linkbot(parsedEvent):
+def gastonbot(parsedEvent):
 
     COMMAND = parsedEvent['message_command']
 
     if COMMAND in COMMAND_PALLETTE:
-        print('[linkbot] command {} confirmed to be valid.'.format(COMMAND))
-        print('[linkbot] proceeding to run associated function for {}.'.format(COMMAND))
+        print('[gastonbot] command {} confirmed to be valid.'.format(COMMAND))
+        print('[gastonbot] proceeding to run associated function for {}.'.format(COMMAND))
 
 
         ######################################################################################
@@ -135,18 +135,18 @@ def linkbot(parsedEvent):
             # enter code below
             try:
                 payload = bark(parsedEvent)
-                print('[linkbot] command "{}" successfully executed.'.format(COMMAND))
+                print('[gastonbot] command "{}" successfully executed.'.format(COMMAND))
             except:
-                print('[linkbot] error executing command "{}".'.format(COMMAND))
+                print('[gastonbot] error executing command "{}".'.format(COMMAND))
             return payload
 
         if COMMAND == 'kiss':
             # enter code below
             try:
                 payload = kiss(parsedEvent)
-                print('[linkbot] command "{}" successfully executed.'.format(COMMAND))
+                print('[gastonbot] command "{}" successfully executed.'.format(COMMAND))
             except:
-                print('[linkbot] error executing command "{}".'.format(COMMAND))
+                print('[gastonbot] error executing command "{}".'.format(COMMAND))
             return payload
 
 
@@ -167,4 +167,4 @@ def linkbot(parsedEvent):
 
 
     else:
-        print('[linkbot] command {} is not a valid command'.format(COMMAND))
+        print('[gastonbot] command {} is not a valid command'.format(COMMAND))

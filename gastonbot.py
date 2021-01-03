@@ -5,7 +5,7 @@ import time
 import datetime
 import discord
 
-from linkbot_rules import linkbot
+from gastonbot_rules import gastonbot
 
 intent = discord.Intents.all()
 client = discord.Client()
@@ -136,7 +136,7 @@ async def on_message(message):
     parsedEvent = eventParser(message)
     payload = None
     try:
-      payload = linkbot(parsedEvent)
+      payload = gastonbot(parsedEvent)
     except:
       pass
     
