@@ -122,7 +122,7 @@ def linkbot(parsedEvent):
                 payload = bark(parsedEvent)
                 print('[linkbot] command "{}" successfully executed.'.format(COMMAND))
             except:
-                print('[!] error executing command "{}".'.format(COMMAND))
+                print('[linkbot] error executing command "{}".'.format(COMMAND))
             return payload
 
 
