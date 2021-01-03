@@ -202,3 +202,4 @@ def gastonbot(parsedEvent):
 
     else:
         print('[gastonbot] command {} is not a valid command'.format(COMMAND))
+        print('[gastonbot] initiating conversation sequence')
