@@ -147,3 +147,4 @@ async def on_message(message):
 
 
 client.run(TOKEN, bot=True)
+print('[{}] bot loaded and running!'.format(BOTNAME.replace('@','')))
