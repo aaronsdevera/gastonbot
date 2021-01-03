@@ -45,6 +45,9 @@ def bark(parsedEvent):
     else:
         # if args, check to see if there is a mention in there
         split_args = parsedEvent['message_args'].split(' ')
+        split_args = list(set(split_args))
+        split_args.remove('')
+        split_args.remove(' ')
         if '<' in split_args[0]:
             payload = '{} BARK!'.format(split_args[0])
     return payload
