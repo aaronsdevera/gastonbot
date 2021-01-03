@@ -22,9 +22,9 @@ COMMAND_PALLETTE = [
     }
 ]
 
-COMMANDS=[]
+valid_commands=[]
 for command in COMMAND_PALLETTE:
-    COMMANDS.append(command['command'])
+    valid_commands.append(command['command'])
 
 
 
@@ -143,7 +143,7 @@ def gastonbot(parsedEvent):
 
     COMMAND = parsedEvent['message_command']
 
-    if COMMAND in COMMANDS:
+    if COMMAND in valid_commands:
         print('[gastonbot] command {} confirmed to be valid.'.format(COMMAND))
         print('[gastonbot] proceeding to run associated function for {}.'.format(COMMAND))
 
