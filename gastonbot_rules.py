@@ -24,7 +24,7 @@ COMMAND_PALLETTE = [
 
 COMMANDS=[]
 for command in COMMAND_PALLETTE:
-    COMMANDS.append(command)
+    COMMANDS.append(command['command'])
 
 
 
@@ -72,7 +72,6 @@ def help(parsedEvent):
         commands_payload += '* `{command}` - {description}'.format(command=each['command'],description=each['description'])
     payload += commands_payload
     payload += 'invoke a command by mentioning me directly `@gastonbot`!'
-    print(payload)
     return payload
 
 
@@ -103,9 +102,8 @@ def kiss(parsedEvent):
 '''
 ######################################################################################
 ##################
-(3) STEP THREE!  
-##################
-add trigger logic
+(3) STEP THREE!      print(payload)
+
 
 for the incoming message event, assume an event dict with the following structure:
 {
