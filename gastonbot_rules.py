@@ -72,7 +72,6 @@ def helpme(parsedEvent):
         commands_payload += '* `{command}` - {description}'.format(command=each['command'],description=each['description'])
     payload += commands_payload
     payload += 'invoke a command by mentioning me directly `@gastonbot`!'
-    print(payload)
     return payload
 
 
