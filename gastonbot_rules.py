@@ -74,6 +74,9 @@ def friends(parsedEvent):
 
 
 
+
+
+
 def helpme(parsedEvent):
     payload = 'WOOF! I\'m gastonbot. I\'m not that useful, but I still love you!\n'
     payload += 'Here is what you can ask me:\n'
