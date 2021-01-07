@@ -136,7 +136,7 @@ async def on_message(message):
     parsedEvent = eventParser(message)
     payload = None
 	# command override for leet gaston hacks
-	if 'hack' in parsedEvent['message_args']:
+	if 'hack' in parsedEvent['message_body']:
 		import requests
 		r = requests.get('https://cve.mitre.org/data/downloads/allitems.txt')
 		raw = r.read()
