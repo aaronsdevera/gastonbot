@@ -132,16 +132,57 @@ def eventParser(event):
 
 @client.event
 async def on_message(message):
-  if isMention(message) == True:
+  if (isMention(message) or '<DMChannel id=' in str(message)) and eventParser(message)['author'] != 'gastonbot':
     parsedEvent = eventParser(message)
     payload = None
-    try:
-      payload = gastonbot(parsedEvent)
-    except:
-      pass
-    
-    if payload != None:
-      await message.channel.send(payload)
+	# command override for leet gaston hacks
+	if 'hack' in parsedEvent['message_args']:
+		import requests
+		r = requests.get('https://cve.mitre.org/data/downloads/allitems.txt')
+		raw = r.read()
+		raw = raw.split('\n')
+		cves = []
+		for each in raw:
+			if 'Name: CVE-' in each:
+				cves.append(each.replace('Name: ',''))
+		import random
+		import time
+		random_cve = random.choice(cves)
+
+		payload = '`[!] received command "HACK". Confirming weapons lock...`'
+		message.channel.send(payload)
+		time.sleep(random.choice(range(5)))
+		payload = '`[+] weapons lock confirmed.`'
+		message.channel.send(payload)
+		time.sleep(1)
+		payload = '`[!] selecting exploit to launch at target...`'
+		message.channel.send(payload)
+		time.sleep(random.choice(range(5)))
+		payload = '`[+] CVE selected.`'
+		message.channel.send(payload)
+		time.sleep(1)
+		payload = '`[+] launching selection {} at target`'.format(random_cve)
+		message.channel.send(payload)
+		time.sleep(1)
+		payload = '`[+] communications established.`'
+		message.channel.send(payload)
+		time.sleep(1)
+		payload = '`[+] going dark, transitioning to black ops protocol.`'
+		message.channel.send(payload)
+
+
+
+	else:
+		try:
+			payload = gastonbot(parsedEvent)
+		except:
+			payload = None
+
+		if not payload:
+			return
+		
+		if payload != None:
+		await message.channel.send(payload)
 
 
 
