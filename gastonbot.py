@@ -150,25 +150,25 @@ async def on_message(message):
 			random_cve = random.choice(cves)
 
 			payload = '`[!] received command "HACK". Confirming weapons lock...`'
-			message.channel.send(payload)
+			await message.channel.send(payload)
 			time.sleep(random.choice(range(5)))
 			payload = '`[+] weapons lock confirmed.`'
-			message.channel.send(payload)
+			await message.channel.send(payload)
 			time.sleep(1)
 			payload = '`[!] selecting exploit to launch at target...`'
-			message.channel.send(payload)
+			await message.channel.send(payload)
 			time.sleep(random.choice(range(5)))
 			payload = '`[+] CVE selected.`'
-			message.channel.send(payload)
+			await message.channel.send(payload)
 			time.sleep(1)
 			payload = '`[+] launching selection {} at target`'.format(random_cve)
-			message.channel.send(payload)
+			await message.channel.send(payload)
 			time.sleep(1)
 			payload = '`[+] communications established.`'
-			message.channel.send(payload)
+			await message.channel.send(payload)
 			time.sleep(1)
 			payload = '`[+] going dark, transitioning to black ops protocol.`'
-			message.channel.send(payload)
+			await message.channel.send(payload)
 
 
 
