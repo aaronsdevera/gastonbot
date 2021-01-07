@@ -139,7 +139,7 @@ async def on_message(message):
 		if 'hack' in parsedEvent['message_body']:
 			import requests
 			r = requests.get('https://cve.mitre.org/data/downloads/allitems.txt')
-			raw = r.read()
+			raw = r.text
 			raw = raw.split('\n')
 			cves = []
 			for each in raw:
