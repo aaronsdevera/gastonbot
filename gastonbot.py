@@ -137,14 +137,15 @@ async def on_message(message):
 		payload = None
 		# command override for leet gaston hacks
 		if 'hack' in parsedEvent['message_body']:
-			import requests
-			r = requests.get('https://cve.mitre.org/data/downloads/allitems.txt')
-			raw = r.text
+			#import requests
+			#r = requests.get('https://cve.mitre.org/data/downloads/allitems.txt')
+			#raw = r.text
+			raw = open('cves.txt').read()
 			raw = raw.split('\n')
 			cves = []
 			for each in raw:
-				if 'Name: CVE-' in each:
-					cves.append(each.replace('Name: ',''))
+				if 'CVE-' in each:
+					cves.append(each)
 			import random
 			import time
 			random_cve = random.choice(cves)
